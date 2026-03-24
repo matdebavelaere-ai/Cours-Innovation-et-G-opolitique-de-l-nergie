@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovation & Géopolitique de l'Énergie — Cours Complet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c1117;
+    --surface: #141b24;
+    --surface2: #1a2433;
+    --border: #253040;
+    --accent: #f0a500;
+    --accent2: #3b9eff;
+    --accent3: #50e3c2;
+    --danger: #ff6b6b;
+    --text: #dde6f0;
+    --text-muted: #7a96b0;
+    --text-dim: #3f5570;
+    --heading: #eaf2ff;
+    --nav-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 16px;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── NAV SIDEBAR ── */
+  #sidebar {
+    width: var(--nav-w);
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    overflow-y: auto;
+    z-index: 100;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .sidebar-header {
+    padding: 28px 20px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .sidebar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--heading);
+    line-height: 1.4;
+  }
+
+  #nav-tree { padding: 12px 0; }
+
+  .nav-part {
+    padding: 12px 20px 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .nav-item {
+    display: block;
+    padding: 8px 20px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all .18s;
+    cursor: pointer;
+    line-height: 1.45;
+  }
+
+  .nav-item:hover, .nav-item.active {
+    color: var(--heading);
+    border-left-color: var(--accent);
+    background: rgba(240,165,0,.06);
+  }
+
+  .nav-item .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    margin-right: 6px;
+  }
+
+  /* ── MAIN ── */
+  #main {
+    margin-left: var(--nav-w);
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    padding: 90px 80px 70px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(59,158,255,.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(240,165,0,.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 800;
+    color: var(--heading);
+    line-height: 1.15;
+    max-width: 720px;
+    margin-bottom: 24px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    max-width: 580px;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .05em;
+    padding: 5px 12px;
+    border-radius: 2px;
+    border: 1px solid;
+  }
+
+  .badge.iea  { border-color: rgba(59,158,255,.4); color: var(--accent2); background: rgba(59,158,255,.06); }
+  .badge.bcg  { border-color: rgba(80,227,194,.4); color: var(--accent3); background: rgba(80,227,194,.06); }
+  .badge.ipcc { border-color: rgba(255,107,107,.35); color: var(--danger); background: rgba(255,107,107,.06); }
+  .badge.year { border-color: var(--border); color: var(--text-muted); background: var(--surface2); }
+
+  /* ── TOC ── */
+  #toc-section {
+    padding: 56px 80px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .toc-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 22px;
+    text-decoration: none;
+    transition: all .2s;
+    display: block;
+  }
+
+  .toc-card:hover {
+    border-color: var(--accent);
+    background: rgba(240,165,0,.04);
+    transform: translateY(-2px);
+  }
+
+  .toc-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    letter-spacing: .1em;
+  }
+
+  .toc-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--heading);
+    line-height: 1.4;
+  }
+
+  /* ── CONTENT SECTIONS ── */
+  .chapter {
+    padding: 72px 80px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .chapter:nth-child(even) {
+    background: var(--surface);
+  }
+
+  .chapter-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 2.5vw, 36px);
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.2;
+    margin-bottom: 32px;
+    max-width: 740px;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--heading);
+    margin: 44px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h3::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 3px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--accent2);
+    margin: 32px 0 12px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  p {
+    color: var(--text);
+    margin-bottom: 18px;
+    max-width: 760px;
+  }
+
+  strong { color: var(--heading); font-weight: 600; }
+  em { color: var(--accent); font-style: italic; }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 36px 0;
+  }
+
+  .stat-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  .stat-card.blue::after { background: var(--accent2); }
+  .stat-card.blue .stat-val { color: var(--accent2); }
+  .stat-card.green::after { background: var(--accent3); }
+  .stat-card.green .stat-val { color: var(--accent3); }
+  .stat-card.red::after { background: var(--danger); }
+  .stat-card.red .stat-val { color: var(--danger); }
+
+  /* ── CALLOUT / QUOTE ── */
+  .callout {
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    background: rgba(240,165,0,.05);
+    border-radius: 0 4px 4px 0;
+    margin: 28px 0;
+    max-width: 760px;
+  }
+
+  .callout.blue { border-left-color: var(--accent2); background: rgba(59,158,255,.05); }
+  .callout.green { border-left-color: var(--accent3); background: rgba(80,227,194,.05); }
+  .callout.red { border-left-color: var(--danger); background: rgba(255,107,107,.05); }
+
+  .callout-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .callout.blue .callout-label { color: var(--accent2); }
+  .callout.green .callout-label { color: var(--accent3); }
+  .callout.red .callout-label { color: var(--danger); }
+
+  .callout p { color: var(--text); margin: 0; max-width: 100%; font-size: 15px; }
+
+  /* ── SOURCE TAG ── */
+  .source {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    margin: 0 3px;
+    vertical-align: middle;
+  }
+
+  /* ── TABLE ── */
+  .data-table {
+    width: 100%;
+    max-width: 760px;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 13.5px;
+  }
+
+  .data-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-table td {
+    padding: 11px 16px;
+    color: var(--text);
+    border-bottom: 1px solid rgba(37,48,64,.6);
+  }
+
+  .data-table tr:hover td { background: rgba(255,255,255,.02); }
+
+  /* ── LIST ── */
+  .course-list {
+    list-style: none;
+    max-width: 760px;
+    margin-bottom: 20px;
+  }
+
+  .course-list li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    color: var(--text);
+    border-bottom: 1px solid rgba(37,48,64,.5);
+    font-size: 15px;
+  }
+
+  .course-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 11px;
+    top: 10px;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    max-width: 760px;
+    padding-left: 32px;
+    margin: 28px 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px; bottom: 6px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 28px;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+
+  .tl-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 4px;
+    letter-spacing: .08em;
+  }
+
+  .tl-text { font-size: 14.5px; color: var(--text); }
+
+  /* ── SCENARIO CARDS ── */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 28px 0;
+  }
+
+  .scenario-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    background: var(--bg);
+  }
+
+  .scenario-card.steps { border-top: 3px solid #e88; }
+  .scenario-card.aps   { border-top: 3px solid var(--accent); }
+  .scenario-card.nze   { border-top: 3px solid var(--accent3); }
+
+  .sc-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .15em;
+    margin-bottom: 8px;
+  }
+
+  .sc-temp {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .scenario-card.steps .sc-temp { color: #e88; }
+  .scenario-card.aps   .sc-temp { color: var(--accent); }
+  .scenario-card.nze   .sc-temp { color: var(--accent3); }
+
+  .sc-desc { font-size: 12.5px; color: var(--text-muted); }
+
+  /* ── RECO CARDS ── */
+  .reco-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+
+  .reco-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px;
+  }
+
+  .reco-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .reco-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-bottom: 10px;
+  }
+
+  .reco-text { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 44px 0 32px;
+    max-width: 760px;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .divider-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  /* ── RISK MATRIX ── */
+  .risk-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(37,48,64,.5);
+    max-width: 760px;
+  }
+
+  .risk-level {
+    flex-shrink: 0;
+    width: 68px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .1em;
+    text-align: center;
+  }
+
+  .risk-level.high { background: rgba(255,107,107,.15); color: var(--danger); border: 1px solid rgba(255,107,107,.3); }
+  .risk-level.med  { background: rgba(240,165,0,.15); color: var(--accent); border: 1px solid rgba(240,165,0,.3); }
+  .risk-level.low  { background: rgba(80,227,194,.1); color: var(--accent3); border: 1px solid rgba(80,227,194,.3); }
+
+  .risk-text { font-size: 14px; color: var(--text); }
+  .risk-text strong { color: var(--heading); }
+
+  /* ── FOOTER ── */
+  #footer {
+    padding: 48px 80px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  .footer-text { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+  .footer-text a { color: var(--accent2); text-decoration: none; }
+
+  /* ── PROGRESS BAR ── */
+  .progress-item {
+    margin-bottom: 16px;
+    max-width: 760px;
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .progress-label { font-size: 13px; color: var(--text); }
+  .progress-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transition: width 1s ease;
+  }
+
+  /* ── SCROLL ACTIVE ── */
+  .chapter { scroll-margin-top: 24px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #sidebar { display: none; }
+    #main { margin-left: 0; }
+    .chapter { padding: 48px 28px; }
+    #hero { padding: 60px 28px 50px; }
+    #toc-section { padding: 40px 28px; }
+    #footer { padding: 40px 28px; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ SIDEBAR ════════════════ -->
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-tag">Cours · Master / Grande École</div>
+    <div class="sidebar-title">Innovation &amp; Géopolitique de l'Énergie</div>
+  </div>
+  <div id="nav-tree">
+    <div class="nav-part">Introduction</div>
+    <a class="nav-item" href="#hero"><span class="num">00</span> Présentation du cours</a>
+    <a class="nav-item" href="#toc-section"><span class="num">·</span> Table des matières</a>
+
+    <div class="nav-part">Chapitre I</div>
+    <a class="nav-item" href="#chap1"><span class="num">01</span> Panorama &amp; trajectoires</a>
+
+    <div class="nav-part">Chapitre II</div>
+    <a class="nav-item" href="#chap2"><span class="num">02</span> Géopolitique &amp; sécurité</a>
+
+    <div class="nav-part">Chapitre III</div>
+    <a class="nav-item" href="#chap3"><span class="num">03</span> Décarbonation &amp; risques</a>
+
+    <div class="nav-part">Chapitre IV</div>
+    <a class="nav-item" href="#chap4"><span class="num">04</span> Technologies bas-carbone</a>
+
+    <div class="nav-part">Chapitre V</div>
+    <a class="nav-item" href="#chap5"><span class="num">05</span> Décarbonation sectorielle</a>
+
+    <div class="nav-part">Conclusion</div>
+    <a class="nav-item" href="#conclusion"><span class="num">·</span> Recommandations &amp; synthèse</a>
+  </div>
+</nav>
+
+<!-- ════════════════ MAIN ════════════════ -->
+<main id="main">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-eyebrow">Cours Magistral — Niveau Master / Grande École — Édition 2024-2025</div>
+    <h1>Innovation &amp; <em>Géopolitique</em> de l'Énergie</h1>
+    <p class="hero-sub">
+      Une analyse systémique des transformations du secteur énergétique mondial : trajectoires historiques, rapports de puissance, impératif climatique, technologies critiques et recommandations stratégiques pour décideurs.
+    </p>
+    <div class="hero-badges">
+      <span class="badge iea">◉ AIE / IEA</span>
+      <span class="badge iea">◉ AIEA / IAEA</span>
+      <span class="badge bcg">◉ BCG</span>
+      <span class="badge bcg">◉ McKinsey</span>
+      <span class="badge ipcc">◉ GIEC / IPCC</span>
+      <span class="badge year">Mise à jour 2025</span>
+    </div>
+  </section>
+
+  <!-- TABLE DES MATIÈRES -->
+  <section id="toc-section">
+    <div class="chapter-eyebrow">Structure du cours</div>
+    <h2>Plan général</h2>
+    <div class="toc-grid">
+      <a class="toc-card" href="#chap1">
+        <div class="toc-num">CHAPITRE I</div>
+        <div class="toc-label">Panorama des énergies dominantes et trajectoires historiques</div>
+      </a>
+      <a class="toc-card" href="#chap2">
+        <div class="toc-num">CHAPITRE II</div>
+        <div class="toc-label">Géopolitique de l'énergie et sécurité des approvisionnements</div>
+      </a>
+      <a class="toc-card" href="#chap3">
+        <div class="toc-num">CHAPITRE III</div>
+        <div class="toc-label">Impératif de décarbonation et gestion des risques</div>
+      </a>
+      <a class="toc-card" href="#chap4">
+        <div class="toc-num">CHAPITRE IV</div>
+        <div class="toc-label">Technologies bas-carbone et chaînes de valeur critiques</div>
+      </a>
+      <a class="toc-card" href="#chap5">
+        <div class="toc-num">CHAPITRE V</div>
+        <div class="toc-label">Décarbonation sectorielle et recommandations stratégiques</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ════ CHAPITRE I ════ -->
+  <section class="chapter" id="chap1">
+    <div class="chapter-eyebrow">Chapitre I</div>
+    <h2>Panorama des énergies dominantes et trajectoires historiques</h2>
+
+    <p>
+      Le système énergétique mondial est le fruit d'une sédimentation pluriséculaire de ruptures technologiques, de crises et d'innovations. Comprendre les structures présentes — et anticiper les transitions à venir — suppose de maîtriser la logique profonde des régimes énergétiques successifs.
+    </p>
+
+    <h3>1.1 — La longue marche des régimes énergétiques</h3>
+
+    <p>
+      L'histoire de l'énergie peut se décomposer en quatre grandes ères, chacune marquée par la domination d'un vecteur primaire et par la recomposition radicale des équilibres économiques et géopolitiques qui l'accompagne.
+    </p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">Avant 1850 — Ère Biomasse</div>
+        <div class="tl-text">Bois, traction animale, énergie hydraulique et éolienne constituent l'essentiel du mix. Les contraintes locales de l'approvisionnement déterminent entièrement les capacités productives des nations.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1850–1950 — Ère Charbon</div>
+        <div class="tl-text">La machine à vapeur industrialise l'Europe et l'Amérique du Nord. Le charbon devient synonyme de puissance nationale : la Ruhr, le Yorkshire, la Lorraine. Les empires coloniaux sécurisent l'accès aux gisements sur tous les continents.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1950–2000 — Ère Pétrole & Gaz</div>
+        <div class="tl-text">La motorisation de masse (Ford, General Motors), l'aviation commerciale et la pétrochimie font du pétrole la colonne vertébrale de l'économie mondiale. La création de l'OPEP (1960), le premier choc pétrolier (1973) et la crise iranienne (1979) démontrent la vulnérabilité géostratégique des pays importateurs. L'AIE est fondée en 1974 précisément en réponse à ces menaces.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2000–présent — Ère de la Transition</div>
+        <div class="tl-text">L'urgence climatique, la chute des coûts des énergies renouvelables et la montée des tensions géopolitiques (Russie–Ukraine, Mer de Chine méridionale) reconfigurent profondément le paysage. L'AIE (WEO 2024) nomme cette période "<em>l'Ère de l'Électricité</em>".</div>
+      </div>
+    </div>
+
+    <h3>1.2 — Le mix énergétique mondial en 2024</h3>
+
+    <p>
+      Malgré une décennie d'essor des renouvelables, les combustibles fossiles demeurent structurellement dominants dans la consommation primaire mondiale. <span class="source">AIE WEO 2024</span>
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-val">80%</div>
+        <div class="stat-label">Part des fossiles dans la consommation énergétique primaire mondiale</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-val">+2.1%</div>
+        <div class="stat-label">Croissance de la demande mondiale d'énergie en 2023</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-val">560 GW</div>
+        <div class="stat-label">Capacités renouvelables installées en 2023 — record historique</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">2 000 Md$</div>
+        <div class="stat-label">Investissement annuel en énergies propres en 2024</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Point clé AIE — WEO 2024</div>
+      <p>L'AIE estime que, dans tous les scénarios modélisés, la demande de pétrole, de gaz et de charbon atteindra un pic avant 2030 — une première dans l'histoire de l'agence. L'électricité propre est appelée à répondre à la quasi-totalité de la croissance de la demande d'énergie entre 2023 et 2035.</p>
+    </div>
+
+    <h3>1.3 — La structure du mix électrique mondial</h3>
+
+    <p>
+      L'électrification accélérée de l'économie (transport, chaleur industrielle, datacenters) place le mix électrique au cœur des enjeux géopolitiques et climatiques. La croissance de la demande d'électricité est deux fois supérieure à celle de la demande énergétique totale sur la dernière décennie. <span class="source">AIE WEO 2024</span>
+    </p>
+
+    <div class="progress-item">
+      <div class="progress-header"><span class="progress-label">Charbon</span><span class="progress-val">~35%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:35%; background: linear-gradient(90deg,#666,#888);"></div></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header"><span class="progress-label">Gaz naturel</span><span class="progress-val">~23%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:23%; background: linear-gradient(90deg,#5599cc,#77bbee);"></div></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header"><span class="progress-label">Hydraulique</span><span class="progress-val">~15%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:15%; background: linear-gradient(90deg,#3b9eff,#5ec8ff);"></div></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header"><span class="progress-label">Solaire PV</span><span class="progress-val">~5.5%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:5.5%; background: linear-gradient(90deg,#f0a500,#ffc94d);"></div></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header"><span class="progress-label">Éolien</span><span class="progress-val">~7.5%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:7.5%; background: linear-gradient(90deg,#50e3c2,#7ff0d4);"></div></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-header"><span class="progress-label">Nucléaire</span><span class="progress-val">~10%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:10%; background: linear-gradient(90deg,#cc77ff,#ee99ff);"></div></div>
+    </div>
+
+    <h3>1.4 — La dynamique du solaire : une révolution technologique</h3>
+
+    <p>
+      Aucun secteur n'illustre mieux la puissance de la courbe d'apprentissage que le solaire photovoltaïque. Le coût des modules a été divisé par plus de <strong>100 en quarante ans</strong> (loi de Swanson). En 2023, 425 GW de capacité solaire ont été installés — soit quatre fois plus qu'en 2019. Les capacités de fabrication mondiales dépassent désormais <strong>1 100 GW/an</strong>, soit presque trois fois ce qui a été installé en 2023. <span class="source">AIE WEO 2024</span>
+    </p>
+
+    <div class="callout blue">
+      <div class="callout-label">Donnée structurelle</div>
+      <p>La Chine représente à elle seule 60% des nouvelles capacités mondiales installées. La production solaire chinoise devrait dépasser la consommation électrique totale des États-Unis au début des années 2030. Cette domination industrielle est au cœur de la rivalité sino-américaine sur les technologies propres.</p>
+    </div>
+
+    <h3>1.5 — La place du nucléaire : renaissance ou déclin ?</h3>
+
+    <p>
+      Après une décennie de scepticisme post-Fukushima (2011), le nucléaire connaît un regain d'intérêt stratégique. L'AIE identifie le nucléaire comme l'une des <strong>sept technologies clés</strong> pour des transitions énergétiques sûres et abordables. <span class="source">AIE WEO 2024</span>
+    </p>
+
+    <ul class="course-list">
+      <li>Plus de 30 pays se sont engagés à <strong>tripler la capacité nucléaire mondiale</strong> d'ici 2050 lors de la COP28 (Dubaï, décembre 2023).</li>
+      <li>Les <strong>petits réacteurs modulaires (SMR)</strong> — avec plusieurs dizaines de projets en développement — promettent de réduire les coûts et les délais de construction.</li>
+      <li>La France (70% d'électricité nucléaire), les États-Unis, la Corée du Sud et le Japon mènent des stratégies de prolongation de vie des parcs existants.</li>
+      <li>La Chine est le premier constructeur mondial de nouveaux réacteurs, avec plus de 20 unités en construction.</li>
+    </ul>
+
+    <h3>1.6 — Les hydrocarbures face à la transition : scénarios de long terme</h3>
+
+    <p>
+      Paradoxalement, la transition énergétique ne signifie pas l'élimination immédiate des hydrocarbures. L'AIE distingue trois trajectoires selon les politiques mises en œuvre.
+    </p>
+
+    <div class="scenario-grid">
+      <div class="scenario-card steps">
+        <div class="sc-name">STEPS — Politiques actuelles</div>
+        <div class="sc-temp">+2.4°C</div>
+        <div class="sc-desc">La demande fossile atteint son pic avant 2030 mais recule lentement. Les émissions ne baissent pas assez rapidement pour atteindre les objectifs climatiques.</div>
+      </div>
+      <div class="scenario-card aps">
+        <div class="sc-name">APS — Engagements annoncés</div>
+        <div class="sc-temp">~1.7°C</div>
+        <div class="sc-desc">Les objectifs nationaux (NDCs, Net Zéro) sont pleinement respectés. Requiert une décarbonation sectorielle profonde et cohérente.</div>
+      </div>
+      <div class="scenario-card nze">
+        <div class="sc-name">NZE — Net Zéro 2050</div>
+        <div class="sc-temp">1.5°C</div>
+        <div class="sc-desc">Aucun nouveau projet pétrolier ou gazier à long délai de développement n'est requis. Implique une transformation radicale du système énergétique mondial.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CHAPITRE II ════ -->
+  <section class="chapter" id="chap2">
+    <div class="chapter-eyebrow">Chapitre II</div>
+    <h2>Géopolitique de l'énergie et sécurité des approvisionnements</h2>
+
+    <p>
+      L'énergie est, depuis le xix<sup>e</sup> siècle, un vecteur de puissance entre États. La dépendance d'une nation à des ressources importées structure ses alliances, ses vulnérabilités et sa politique étrangère. La guerre en Ukraine et les tensions en mer de Chine méridionale réactualisent avec force cette réalité.
+    </p>
+
+    <h3>2.1 — Le concept de sécurité énergétique</h3>
+
+    <p>
+      L'AIE définit la sécurité énergétique selon quatre dimensions (les "4A") : <strong>Availability</strong> (disponibilité physique), <strong>Affordability</strong> (prix abordables), <strong>Accessibility</strong> (accès aux infrastructures), <strong>Acceptability</strong> (acceptabilité sociale et environnementale). Ces dimensions sont souvent en tension — c'est le "trilemme énergétique".
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">Le trilemme énergétique</div>
+      <p>Le World Energy Council formalise le trilemme : <strong>sécurité</strong> vs <strong>équité/accessibilité</strong> vs <strong>durabilité environnementale</strong>. Aucune nation ne peut optimiser simultanément les trois sommets. La crise ukrainienne de 2022 a brutalement mis en évidence les arbitrages contraints, lorsque des priorités de sécurité à court terme ont relancé temporairement le charbon en Europe.</p>
+    </div>
+
+    <h3>2.2 — La guerre en Ukraine : choc géopolitique et accélérateur de transition</h3>
+
+    <p>
+      L'invasion russe de l'Ukraine (février 2022) constitue le plus grand choc géopolitique énergétique depuis 1973. En quelques mois, l'Europe a dû repenser entièrement ses approvisionnements en gaz naturel, dont elle dépendait à <strong>plus de 45%</strong> de la Russie. <span class="source">Commission européenne</span>
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-card red">
+        <div class="stat-val">45%</div>
+        <div class="stat-label">Part des importations de gaz russe dans l'UE avant la guerre (2021)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">19%</div>
+        <div class="stat-label">Part du gaz russe dans les importations de l'UE en 2024 (gaz total)</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-val">91 BCM</div>
+        <div class="stat-label">Gaz norvégien importé par l'UE en 2024 (1er fournisseur)</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-val">45 BCM</div>
+        <div class="stat-label">GNL américain importé par l'UE en 2024 (+138% vs 2021)</div>
+      </div>
+    </div>
+
+    <p>
+      La réponse européenne a été structurée par le plan <strong>REPowerEU</strong> (mai 2022), articulé autour de trois axes : diversification des approvisionnements, économies d'énergie et déploiement massif des renouvelables. <span class="source">Commission européenne</span>
+    </p>
+
+    <div class="callout blue">
+      <div class="callout-label">Tournant historique — Janvier 2025</div>
+      <p>Depuis le 1<sup>er</sup> janvier 2025, le transit de gaz russe via l'Ukraine a cessé après la non-reconduction de l'accord Gazprom–Naftogaz. Les ministres de l'Énergie de l'UE ont par ailleurs acté, en octobre 2025, une feuille de route pour mettre fin à toutes les importations de gaz russe d'ici le 1<sup>er</sup> janvier 2028. Pour les importations par gazoduc : interdiction dès janvier 2026 ; pour les contrats à long terme : extinction au 1<sup>er</sup> janvier 2028. <span class="source">Touteleurope.eu, Gaz d'Aujourd'hui 2025</span></p>
+    </div>
+
+    <h3>2.3 — Cartographie des dépendances géoénergétiques</h3>
+
+    <h4>Points d'étranglement (chokepoints) stratégiques</h4>
+
+    <p>
+      Le commerce mondial d'énergie repose sur des infrastructures physiques vulnérables. Environ <strong>20% des approvisionnements mondiaux en pétrole brut et en GNL</strong> transitent par le détroit d'Ormuz, dans un contexte de tensions persistantes au Moyen-Orient. <span class="source">AIE WEO 2024</span>
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Chokepoint</th>
+          <th>Volume transité</th>
+          <th>Enjeu principal</th>
+          <th>Acteurs de risque</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Détroit d'Ormuz</strong></td>
+          <td>~20 Mb/j pétrole + GNL</td>
+          <td>Pétrole du Golfe Persique</td>
+          <td>Iran, Houthis</td>
+        </tr>
+        <tr>
+          <td><strong>Détroit de Malacca</strong></td>
+          <td>~15 Mb/j</td>
+          <td>Approvisionnement de l'Asie de l'Est</td>
+          <td>Piraterie, tensions Chine–ASEAN</td>
+        </tr>
+        <tr>
+          <td><strong>Canal de Suez</strong></td>
+          <td>~8–10% commerce mondial</td>
+          <td>GNL, pétrole Europe–Asie</td>
+          <td>Houthis (attaques 2023–2024)</td>
+        </tr>
+        <tr>
+          <td><strong>Mer Baltique</strong></td>
+          <td>Gazoducs Nord Stream</td>
+          <td>Gaz Russie–Europe</td>
+          <td>Sabotage (septembre 2022)</td>
+        </tr>
+        <tr>
+          <td><strong>Détroit de Taiwan</strong></td>
+          <td>50% trafic maritime mondial</td>
+          <td>Semi-conducteurs + hydrocarbures</td>
+          <td>Tensions Chine–Taiwan–USA</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2.4 — La rivalité sino-américaine comme structurante de la géopolitique énergétique</h3>
+
+    <p>
+      La compétition entre Pékin et Washington se déploie sur deux fronts simultanés et paradoxaux : les <strong>énergies fossiles</strong> (domination de l'OPEP+, achats de pétrole russe par la Chine) et les <strong>technologies propres</strong> (domination chinoise des chaînes de valeur solaire, batteries, terres rares). <span class="source">IEA, McKinsey Global Institute 2024</span>
+    </p>
+
+    <ul class="course-list">
+      <li>La Chine contrôle aujourd'hui plus de <strong>80% du raffinage mondial des terres rares</strong> et représente 60% des capacités mondiales de fabrication de modules solaires.</li>
+      <li>La Chine est appelée à voir sa dépendance aux importations pétrolières dépasser <strong>80% d'ici 2050</strong> malgré son leadership dans les véhicules électriques. <span class="source">AIE WEO 2024</span></li>
+      <li>Les États-Unis ont répondu par l'<strong>Inflation Reduction Act</strong> (IRA, 2022) — 369 milliards de dollars de subventions pour les technologies propres — et par les restrictions sur les exportations de semi-conducteurs vers la Chine.</li>
+      <li>Depuis 2020, plus de <strong>200 mesures commerciales</strong> restrictives affectant les technologies d'énergie propre ont été introduites dans le monde, contre seulement 40 dans les cinq années précédentes. <span class="source">AIE WEO 2024</span></li>
+    </ul>
+
+    <h3>2.5 — L'OPEP+ et la gouvernance des marchés pétroliers</h3>
+
+    <p>
+      L'alliance OPEP+ (OPEP + Russie + partenaires), née en 2016, a profondément modifié la gouvernance du marché pétrolier. Elle représente environ <strong>40% de la production mondiale</strong> de pétrole. En 2023–2024, des coupes volontaires de production de l'Arabie Saoudite et de la Russie ont soutenu les prix dans un contexte de demande volatile.
+    </p>
+
+    <div class="callout red">
+      <div class="callout-label">Tension structurelle</div>
+      <p>La surproduction potentielle des pays OPEP+ (notamment l'Irak, les Émirats, le Kazakhstan) crée des tensions internes récurrentes sur les quotas. Par ailleurs, la montée en puissance de la production de pétrole de schiste américain (shale oil) — dépassant 13 millions de barils/jour — a transformé les États-Unis en premier producteur mondial, remodelant les rapports de force au sein de l'alliance.</p>
+    </div>
+
+    <h3>2.6 — La fragmentation géopolitique des marchés énergétiques</h3>
+
+    <p>
+      McKinsey note dans son enquête annuelle auprès de 1 200 dirigeants mondiaux que <strong>l'instabilité géopolitique demeure la deuxième source de préoccupation</strong> des chefs d'entreprises, après l'inflation, devant la volatilité des prix de l'énergie. <span class="source">McKinsey 2023–2024</span>
+    </p>
+
+    <p>
+      On observe une fragmentation croissante des marchés énergétiques en blocs géoéconomiques distincts : le bloc occidental (OCDE + alliés), le bloc eurasiatique (Russie, Chine, Iran) et un "Sud global" cherchant à préserver des marges de manœuvre. Cette fragmentation implique des <strong>primes de risque géopolitique</strong> croissantes sur les investissements en infrastructures énergétiques.
+    </p>
+  </section>
+
+  <!-- ════ CHAPITRE III ════ -->
+  <section class="chapter" id="chap3">
+    <div class="chapter-eyebrow">Chapitre III</div>
+    <h2>Impératif de décarbonation et gestion des risques</h2>
+
+    <p>
+      La décarbonation n'est plus seulement un impératif moral ou réglementaire : elle est devenue une variable stratégique de premier plan pour les États, les entreprises et les investisseurs. Sa mise en œuvre implique une gestion rigoureuse des risques physiques, de transition et géopolitiques.
+    </p>
+
+    <h3>3.1 — État des lieux climatique : l'urgence quantifiée</h3>
+
+    <p>
+      Le GIEC (AR6, 2023) confirme que les émissions mondiales de CO₂ doivent atteindre leur maximum avant 2025 et diminuer de 43% d'ici 2030 par rapport à 2019 pour maintenir le réchauffement sous 1,5°C. <span class="source">GIEC AR6 2023</span>
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-card red">
+        <div class="stat-val">2.4°C</div>
+        <div class="stat-label">Trajectoire actuelle du réchauffement climatique (politiques en vigueur — STEPS)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">-43%</div>
+        <div class="stat-label">Réduction des émissions nécessaire d'ici 2030 (vs 2019) pour rester sous 1.5°C</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-val">1 000 Md$</div>
+        <div class="stat-label">Investissements étatiques annuels dans l'énergie via entreprises publiques — à augmenter de 40% (NZE)</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-val">60%</div>
+        <div class="stat-label">Hausse des investissements en énergie propre depuis l'Accord de Paris (2015)</div>
+      </div>
+    </div>
+
+    <div class="callout red">
+      <div class="callout-label">Alerte GIEC / AIE</div>
+      <p>Aucun des 45 indicateurs évalués dans le rapport "State of Climate Action 2025" n'est en bonne voie pour atteindre son objectif 2030. L'accélération requise dans chaque secteur est qualifiée de "transformation sans précédent". <span class="source">Climate Action Tracker 2025</span></p>
+    </div>
+
+    <h3>3.2 — La taxonomie des risques énergétiques</h3>
+
+    <h4>Risques physiques</h4>
+
+    <div class="risk-row">
+      <span class="risk-level high">ÉLEVÉ</span>
+      <span class="risk-text"><strong>Événements extrêmes</strong> — Vagues de chaleur, inondations, ouragans : impacts sur les centrales, les réseaux électriques, les plateformes pétrolières et gazières. Coûts annuels des catastrophes climatiques en hausse exponentielle (>300 Md$/an en 2023).</span>
+    </div>
+    <div class="risk-row">
+      <span class="risk-level high">ÉLEVÉ</span>
+      <span class="risk-text"><strong>Stress hydrique</strong> — Les centrales thermiques et nucléaires consomment d'importantes quantités d'eau de refroidissement. Les sécheresses répétées (France 2022, Europe 2023) ont contraint des arrêts de production.</span>
+    </div>
+    <div class="risk-row">
+      <span class="risk-level med">MOYEN</span>
+      <span class="risk-text"><strong>Variabilité des ressources renouvelables</strong> — Intermittence du solaire et de l'éolien impliquant un besoin massif en stockage et en flexibilité du réseau.</span>
+    </div>
+
+    <h4>Risques de transition</h4>
+
+    <div class="risk-row">
+      <span class="risk-level high">ÉLEVÉ</span>
+      <span class="risk-text"><strong>Actifs échoués (stranded assets)</strong> — Les compagnies pétrolières et gazières, les centrales à charbon, les raffineries : des billions de dollars d'actifs pourraient être dévalorisés par une décarbonation accélérée. La Banque Mondiale estime ce risque à >1 000 Md$ dans le seul secteur pétro-gazier.</span>
+    </div>
+    <div class="risk-row">
+      <span class="risk-level high">ÉLEVÉ</span>
+      <span class="risk-text"><strong>Risque réglementaire et de politique publique</strong> — Incertitudes sur la tarification carbone, les subventions, les standards de performance. Retournements politiques post-élections pouvant perturber les cycles d'investissement.</span>
+    </div>
+    <div class="risk-row">
+      <span class="risk-level med">MOYEN</span>
+      <span class="risk-text"><strong>Risque de réputation et contentieux climatiques</strong> — Le nombre de contentieux climatiques contre les États et les entreprises fossiles a doublé depuis 2015 (PNUE 2023). Les entreprises non alignées avec les trajectoires net zéro font face à une hausse du coût du capital.</span>
+    </div>
+    <div class="risk-row">
+      <span class="risk-level low">FAIBLE</span>
+      <span class="risk-text"><strong>Risque d'innovation de rupture</strong> — L'émergence rapide de nouvelles technologies (fusion nucléaire, hydrogène vert, stockage long terme) pourrait invalider des paris industriels à long terme.</span>
+    </div>
+
+    <h3>3.3 — Les mécanismes de tarification carbone</h3>
+
+    <p>
+      La tarification carbone est aujourd'hui l'instrument économique central de la transition. Deux approches coexistent et se complètent : le marché de droits à polluer (ETS/SEQE) et la taxe carbone.
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Instrument</th><th>Couverture</th><th>Prix en 2024</th><th>Enjeu clé</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>EU ETS (Europe)</td><td>~45% des émissions UE</td><td>55–70 €/tCO₂</td><td>Extension aux secteurs maritime, aviation, bâtiment (EU ETS2)</td></tr>
+        <tr><td>Taxe carbone France</td><td>Transport, chauffage</td><td>45 €/tCO₂ (gelée)</td><td>Acceptabilité sociale (Gilets Jaunes 2018)</td></tr>
+        <tr><td>CBAM (Mécanisme d'ajust. carbone aux frontières)</td><td>Import. acier, ciment…</td><td>Entrée en vigueur 2026</td><td>Risque de carbon leakage</td></tr>
+        <tr><td>US IRA (crédit 45Q)</td><td>CCUS, hydrogène</td><td>85 $/tCO₂ (CCUS)</td><td>Compétitivité industrie propre</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3.4 — Le défi du financement climatique et du "South Gap"</h3>
+
+    <p>
+      L'un des enjeux les plus critiques de la transition est l'accès au financement dans les économies émergentes et en développement. La part de l'investissement en énergie propre qui va à ces économies hors Chine stagne à <strong>seulement 15% du total mondial</strong>, alors qu'elles représentent deux tiers de la population mondiale. <span class="source">AIE WEO 2024</span>
+    </p>
+
+    <div class="callout green">
+      <div class="callout-label">Inégalité du financement</div>
+      <p>Les coûts de financement pour les projets solaires dans les économies en développement sont deux fois plus élevés que dans les pays développés. Cette "prime de risque" rend les technologies bas-carbone moins attractives précisément là où la croissance de la demande est la plus forte, perpétuant la dépendance aux énergies fossiles les moins chères à court terme.</p>
+    </div>
+  </section>
+
+  <!-- ════ CHAPITRE IV ════ -->
+  <section class="chapter" id="chap4">
+    <div class="chapter-eyebrow">Chapitre IV</div>
+    <h2>Technologies bas-carbone et chaînes de valeur critiques</h2>
+
+    <p>
+      La transition énergétique repose sur un bouquet de technologies interdépendantes, dont le déploiement implique des chaînes de valeur mondiales complexes et des dépendances géopolitiques nouvelles — les "nouvelles dépendances vertes". L'AIE identifie <strong>sept technologies pivots</strong> représentant ensemble 75% des réductions d'émissions nécessaires d'ici 2050. <span class="source">AIE WEO 2024</span>
+    </p>
+
+    <h3>4.1 — Les sept technologies pivots selon l'AIE</h3>
+
+    <ul class="course-list">
+      <li><strong>Solaire PV</strong> — Technologie à la plus forte croissance, coûts en chute libre, chaîne de valeur dominée par la Chine.</li>
+      <li><strong>Éolien</strong> (terrestre et offshore) — L'Europe et la Chine mènent, mais contraintes de réseaux et de permitting.</li>
+      <li><strong>Nucléaire</strong> — Énergie pilotable, renaissance stratégique via les SMR et la prolongation des parcs existants.</li>
+      <li><strong>Véhicules électriques (VE)</strong> — 14 millions vendus en 2023, +35% sur un an. Catalyseur de la demande en lithium et cobalt.</li>
+      <li><strong>Pompes à chaleur</strong> — Solution clé pour la décarbonation du chauffage, mais repli des ventes en Europe en 2024.</li>
+      <li><strong>Hydrogène bas-carbone</strong> — Vecteur de décarbonation pour l'industrie lourde et l'aviation, mais coûts encore élevés.</li>
+      <li><strong>CCUS</strong> (Capture, utilisation et stockage du carbone) — Indispensable pour les "émissions dures à abattre", mais déploiement insuffisant.</li>
+    </ul>
+
+    <h3>4.2 — Les minéraux critiques : le nouveau pétrole de la transition</h3>
+
+    <p>
+      Chaque éolienne, batterie, moteur de VE ou aimant permanent requiert des quantités croissantes de matériaux spécifiques. La transition énergétique crée paradoxalement de <strong>nouvelles dépendances géopolitiques</strong>, substituant la géographie des hydrocarbures à celle des minéraux. <span class="source">AIE Global Critical Minerals Outlook 2024–2025</span>
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">Projection AIE — Scénario NZE 2040</div>
+      <p>Dans le scénario Net Zéro 2050, la demande en <strong>lithium</strong> est multipliée par <strong>9</strong>, le <strong>graphite</strong> par <strong>4</strong>, le <strong>cuivre</strong> augmente de <strong>50%</strong>, et la demande en <strong>nickel, cobalt et terres rares double</strong>. Les VE et le stockage stationnaire représenteront plus de 90% de la demande totale en lithium dès 2030.</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-val">×9</div>
+        <div class="stat-label">Multiplication de la demande en lithium d'ici 2040 (scénario NZE)</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-val">40%</div>
+        <div class="stat-label">Déficit de l'offre annoncée par rapport aux besoins en lithium en 2035 (scénario APS)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">70%</div>
+        <div class="stat-label">Seulement de la demande en cuivre couverte par les projets annoncés (APS, 2035)</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-val">30%</div>
+        <div class="stat-label">Part des flux commerciaux de minéraux critiques potentiellement perturbée par tensions géopolitiques (BCG 2025)</div>
+      </div>
+    </div>
+
+    <h3>4.3 — La concentration géographique des chaînes de valeur</h3>
+
+    <p>
+      La vulnérabilité des chaînes de valeur des minéraux critiques tient à leur <strong>double concentration</strong> : géographique (peu de pays producteurs) et industrielle (peu d'entreprises de raffinage dominantes). <span class="source">AIE GCMO 2024–2025</span>
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Minéral</th><th>Principaux producteurs miniers</th><th>Raffinage dominant</th><th>Vulnérabilité N-1</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Lithium</strong></td><td>Australie, Chili, Argentine</td><td>Chine (~60%)</td><td>Haute (50% gap en 2035)</td></tr>
+        <tr><td><strong>Cobalt</strong></td><td>RDC (~70%), Indonésie</td><td>Chine (~75%)</td><td>Très haute</td></tr>
+        <tr><td><strong>Graphite</strong></td><td>Chine (~65%), Madagascar</td><td>Chine (~90%)</td><td>Critique (N-1 = 10% seulement)</td></tr>
+        <tr><td><strong>Terres rares</strong></td><td>Chine (~60%), USA, Australie</td><td>Chine (~85%)</td><td>Critique</td></tr>
+        <tr><td><strong>Nickel</strong></td><td>Indonésie (~50%), Philippines</td><td>Chine (~40%)</td><td>Haute</td></tr>
+        <tr><td><strong>Cuivre</strong></td><td>Chili, Pérou, RDC, Chine</td><td>Diverse</td><td>Modérée (seul minerai "résilient")</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue">
+      <div class="callout-label">Analyse BCG — Mineral Shortage Study 2025</div>
+      <p>BCG estime que jusqu'à 20% de l'approvisionnement en minéraux critiques pourrait être sous tension d'ici 2035, et que 30% des flux commerciaux pourraient être perturbés par des tensions géopolitiques dans la prochaine décennie. La Chine assure ~60% du raffinage mondial, créant une vulnérabilité structurelle pour l'Occident. BCG préconise le développement de <em>hubs minéraux régionaux</em> (ex: Indonésie pour le nickel) pour réduire cette dépendance. <span class="source">BCG 2025</span></p>
+    </div>
+
+    <h3>4.4 — L'hydrogène vert : espoir ou mirage industriel ?</h3>
+
+    <p>
+      L'hydrogène bas-carbone ("vert" produit par électrolyse d'énergie renouvelable, ou "bleu" à partir de gaz avec CCUS) est présenté comme le vecteur de décarbonation des secteurs "difficiles à électrifier" : sidérurgie, chimie, aviation, transport lourd.
+    </p>
+
+    <ul class="course-list">
+      <li>Coût actuel de l'hydrogène vert : <strong>4–8 USD/kg</strong>, vs 1–2 USD/kg pour l'hydrogène gris (fossile). La parité est attendue entre 2030 et 2035 dans les zones à fort gisement renouvelable.</li>
+      <li>L'Union européenne vise <strong>10 Mt d'hydrogène vert/an produits domestiquement et 10 Mt importés d'ici 2030</strong> (REPowerEU). Un objectif jugé trop ambitieux par l'AIE.</li>
+      <li>La géopolitique de l'hydrogène vert dessine de nouvelles géographies d'approvisionnement : Australie, Afrique du Nord (Maroc, Algérie), Moyen-Orient, Chili — pays à fort potentiel renouvelable et bas coût.</li>
+    </ul>
+
+    <h3>4.5 — La révolution des batteries : innovation et compétition industrielle</h3>
+
+    <p>
+      Le marché des batteries Li-Ion a connu une chute de coûts supérieure à 90% en quinze ans. En 2023, les ventes de voitures électriques ont atteint <strong>14 millions d'unités</strong> dans le monde, soit +35% par rapport à 2022. <span class="source">AIE GCMO 2024</span>
+    </p>
+
+    <p>
+      La Chine reste le leader incontesté de la chaîne de valeur des batteries : elle domine l'extraction et le raffinage des matières premières (lithium, cobalt, graphite), la fabrication de cellules (CATL, BYD) et les véhicules finaux. L'Europe et les États-Unis cherchent à développer des "gigafactories" nationales — avec des résultats mitigés en termes de calendrier et de compétitivité-coût.
+    </p>
+
+    <div class="callout green">
+      <div class="callout-label">Innovation de rupture</div>
+      <p>Les batteries <strong>sodium-ion</strong> (sans lithium, sans cobalt) et les batteries à <strong>électrolyte solide</strong> (solid-state) sont en cours de commercialisation chez CATL, Toyota, QuantumScape. Elles pourraient réduire significativement la dépendance aux minéraux rares et améliorer la densité d'énergie, modifiant à terme la géopolitique des minéraux critiques.</p>
+    </div>
+
+    <h3>4.6 — Réseaux électriques et stockage : le maillon faible de la transition</h3>
+
+    <p>
+      L'AIE identifie les <strong>infrastructures de réseau et de stockage</strong> comme le principal goulot d'étranglement de la transition électrique. La capacité mondiale de stockage (batteries stationnaires) a décuplé entre 2019 et 2023, mais reste insuffisante face à l'intermittence du solaire et de l'éolien. L'AIE prévoit que <strong>80 millions de km de lignes électriques</strong> devront être construits ou rénovés d'ici 2040. <span class="source">AIE WEO 2024</span>
+    </p>
+  </section>
+
+  <!-- ════ CHAPITRE V ════ -->
+  <section class="chapter" id="chap5">
+    <div class="chapter-eyebrow">Chapitre V</div>
+    <h2>Décarbonation sectorielle et recommandations stratégiques</h2>
+
+    <p>
+      La décarbonation de l'économie ne peut être appréhendée de manière homogène : chaque secteur présente des contraintes technologiques, économiques et politiques spécifiques. Une approche sectorielle fine est indispensable pour allouer efficacement les ressources d'investissement et prioriser les interventions publiques.
+    </p>
+
+    <h3>5.1 — Le secteur de l'électricité : la "tête de pont" de la transition</h3>
+
+    <p>
+      La décarbonation du mix électrique est à la fois la plus avancée et la plus critique, car elle conditionne la décarbonation de tous les autres secteurs via l'électrification. <span class="source">AIE WEO 2024, GIEC AR6</span>
+    </p>
+
+    <p>
+      La part des énergies bas-carbone dans la production électrique de l'UE a atteint <strong>47% en 2024</strong> (contre 44% en 2023), selon Ember. Le scénario NZE de l'AIE projette que plus de 50% de l'électricité mondiale devra provenir de sources bas-carbone avant 2030.
+    </p>
+
+    <ul class="course-list">
+      <li><strong>Enjeux de réseau</strong> : L'intégration massive de renouvelables intermittents impose des investissements colossaux dans les smart grids, les interconnexions transfrontalières et le stockage distribué.</li>
+      <li><strong>Flexibilité et stockage</strong> : STEP (pompages), batteries stationnaires, hydrogène-power to gas, réponse de la demande (demand-side management).</li>
+      <li><strong>Nucléaire comme option de base</strong> : Complémentarité avec les renouvelables variables pour la stabilité du réseau.</li>
+    </ul>
+
+    <h3>5.2 — Les transports : la plus grande source de CO₂ final dans les pays développés</h3>
+
+    <p>
+      Le secteur des transports représente environ <strong>25% des émissions mondiales</strong> de CO₂ liées à l'énergie. Sa décarbonation suit des voies technologiques très différentes selon le sous-secteur.
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Sous-secteur</th><th>Solution dominante</th><th>Maturité</th><th>Enjeu critique</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Voiture particulière</td><td>Véhicule électrique à batterie</td><td>Commerciale</td><td>Infrastructure de recharge, coût d'achat</td></tr>
+        <tr><td>Camion lourd (>3.5t)</td><td>VE + pile à combustible H₂</td><td>Émergente</td><td>Densité énergétique, réseau H₂</td></tr>
+        <tr><td>Aviation</td><td>SAF (carburants durables), H₂</td><td>Pilote</td><td>Coût SAF (3–5× le kérosène)</td></tr>
+        <tr><td>Maritime</td><td>NH₃, CH₃OH, H₂, GNL transition</td><td>R&D</td><td>Normes IMO, infrastructure ports</td></tr>
+        <tr><td>Rail</td><td>Électrification + hydrogène</td><td>Avancée</td><td>Rentabilité sur petites lignes</td></tr>
+      </tbody>
+    </table>
+
+    <h3>5.3 — L'industrie : le secteur le plus difficile à décarboner</h3>
+
+    <p>
+      L'industrie (acier, ciment, chimie, aluminium) émet environ <strong>30% des émissions mondiales de CO₂</strong> et représente le principal défi de décarbonation en raison de sa dépendance aux hautes températures et aux réactions chimiques intrinsèquement carbonées.
+    </p>
+
+    <ul class="course-list">
+      <li><strong>Sidérurgie</strong> — La fabrication d'acier "vert" via réduction directe au fer (DRI-H₂) est en cours de déploiement industriel (ArcelorMittal, SSAB avec HYBRIT en Suède). Surcoût estimé à 20–40% vs l'acier conventionnel.</li>
+      <li><strong>Ciment</strong> — 60% des émissions sont liées au procédé chimique (décarbonatation de la calcite), rendant le CCUS quasi-indispensable. Innovations : ciments bas-carbone, réducteurs d'émissions procédé.</li>
+      <li><strong>Chimie</strong> — L'hydrogène vert peut remplacer l'hydrogène gris dans la production d'ammoniac (engrais) et de méthanol. Enjeu d'un "verdissement" progressif des plateformes chimiques existantes.</li>
+    </ul>
+
+    <h3>5.4 — Le bâtiment : un levier sous-exploité</h3>
+
+    <p>
+      Les bâtiments représentent environ <strong>40% de la consommation énergétique finale</strong> en Europe et 30% des émissions. Le doublement du rythme mondial d'amélioration de l'efficacité énergétique prévu par l'AIE pour 2030 est "loin d'être atteint" dans les politiques actuelles. <span class="source">AIE WEO 2024</span>
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">Paradoxe sectoriel</div>
+      <p>Les ventes de pompes à chaleur en Europe ont chuté de manière importante en 2024 malgré leur rôle central dans la décarbonation du chauffage. Ce recul illustre la tension entre l'impératif climatique, le coût d'investissement initial et la volatilité des prix de l'énergie pour les ménages. L'AIE cite ce phénomène comme un exemple d'incohérence entre les politiques énergétiques et les comportements de marché. <span class="source">AIE WEO 2024</span></p>
+    </div>
+
+    <h3>5.5 — Agriculture et usage des terres (AFOLU)</h3>
+
+    <p>
+      Ce secteur représente environ <strong>22% des émissions mondiales</strong> (méthane, protoxyde d'azote, déforestation). Les solutions combinent changements de pratiques agricoles (agriculture régénérative), sobriété alimentaire (réduction de la viande bovine), protection des forêts et foresterie de séquestration. Le méthane agricole est une priorité : des technologies de réduction des émissions entériques (additifs alimentaires, vaccination) existent mais leur déploiement est inégal.
+    </p>
+
+    <div class="divider"><span class="divider-label">Recommandations stratégiques</span></div>
+
+    <h3>5.6 — Cadre de recommandations pour États, entreprises et investisseurs</h3>
+
+    <div class="reco-grid">
+      <div class="reco-card">
+        <div class="reco-icon">🏛️</div>
+        <div class="reco-title">Pour les États</div>
+        <div class="reco-text">Mettre en cohérence la tarification carbone avec les objectifs nets zéro. Développer des politiques industrielles actives pour les technologies critiques (IRA, Net Zero Industry Act). Sécuriser les chaînes d'approvisionnement en minéraux via des partenariats bilatéraux et des "clubs minéraux" de pays partageant les mêmes valeurs. Financer massivement les réseaux électriques.</div>
+      </div>
+      <div class="reco-card">
+        <div class="reco-icon">🏭</div>
+        <div class="reco-title">Pour les industriels</div>
+        <div class="reco-text">Intégrer les risques physiques et de transition dans la stratégie d'entreprise et dans les décisions d'investissement. Diversifier les sources d'approvisionnement en matières premières critiques. Accélérer les partenariats pour les technologies bas-carbone (R&D, JV). S'aligner sur les exigences de reporting climatique (CSRD, TCFD).</div>
+      </div>
+      <div class="reco-card">
+        <div class="reco-icon">💰</div>
+        <div class="reco-title">Pour les investisseurs</div>
+        <div class="reco-text">Incorporer les critères TCFD et les scenarii de l'AIE dans les modèles d'évaluation. Réorienter progressivement les portefeuilles vers les actifs alignés avec le scénario 1.5°C. S'intéresser aux opportunités dans les minéraux critiques, le stockage, les réseaux et l'efficacité énergétique — pas seulement aux "grandes technologies" visibles.</div>
+      </div>
+      <div class="reco-card">
+        <div class="reco-icon">🌍</div>
+        <div class="reco-title">Pour la gouvernance internationale</div>
+        <div class="reco-text">Renforcer les mécanismes de financement climatique (NCQG post-COP29) pour les pays en développement. Créer des standards communs pour les "produits à contenu carbone". Mettre en place une coordination OPEP-renouvelables pour éviter des volatilités destructrices. Renforcer le rôle de l'AIE comme forum de gouvernance de la transition.</div>
+      </div>
+      <div class="reco-card">
+        <div class="reco-icon">🔬</div>
+        <div class="reco-title">Innovation & R&D</div>
+        <div class="reco-text">Prioriser les investissements en R&D sur les technologies à fort potentiel et coûts actuels élevés : stockage long terme, hydrogène vert, SMR, CCUS, batteries solides. Construire des corridors technologiques Nord–Sud pour diffuser les solutions dans les économies émergentes.</div>
+      </div>
+      <div class="reco-card">
+        <div class="reco-icon">🔗</div>
+        <div class="reco-title">Chaînes de valeur & souveraineté</div>
+        <div class="reco-text">Appliquer la recommandation BCG de développer des hubs minéraux régionaux (Afrique, Amérique du Sud, Europe). Investir dans le recyclage des batteries (réduction de 10–30% des besoins en extraction primaire d'ici 2040 selon l'AIE). Diversifier les sources de raffinage hors Chine pour les minéraux stratégiques.</div>
+      </div>
+    </div>
+
+    <h3>5.7 — La "juste transition" comme condition de succès</h3>
+
+    <p>
+      Toute stratégie de décarbonation qui ignorerait ses dimensions sociales est vouée à l'échec politique. L'histoire récente (Gilets Jaunes en France, contestation des prix de l'énergie en 2022–2023) démontre que la vitesse de la transition doit être socialement acceptable. Les "emplois fossiles" — mineurs, raffinage, centrales — ne peuvent être éliminés sans accompagnement actif : reconversion, formation, développement territorial.
+    </p>
+
+    <p>
+      McKinsey estime que la transition énergétique pourrait créer <strong>200 millions de nouveaux emplois</strong> dans les énergies propres d'ici 2050, contre 80 millions perdus dans les fossiles — mais ce bilan net masque des asymétries géographiques et sociales considérables qui nécessitent des politiques volontaristes d'accompagnement. <span class="source">McKinsey Global Energy Perspectives 2023</span>
+    </p>
+  </section>
+
+  <!-- ════ CONCLUSION ════ -->
+  <section class="chapter" id="conclusion">
+    <div class="chapter-eyebrow">Conclusion &amp; Synthèse</div>
+    <h2>Vers un nouveau système énergétique mondial : convergences et tensions</h2>
+
+    <p>
+      Ce cours a permis d'analyser la transformation profonde du système énergétique mondial à travers cinq prismes complémentaires. En guise de conclusion, voici les grandes convergences et tensions structurantes que tout décideur doit intégrer.
+    </p>
+
+    <h3>Convergences majeures</h3>
+
+    <ul class="course-list">
+      <li><strong>Le pic des fossiles avant 2030 est désormais un scénario central</strong> pour l'AIE, y compris dans le scénario de politiques actuelles (STEPS). Ce n'est plus une hypothèse militante mais une projection d'agence intergouvernementale.</li>
+      <li><strong>L'électricité est le vecteur d'avenir.</strong> Chaque décision d'investissement dans les infrastructures — réseaux, stockage, production — conditionne les trajectoires climatiques de la décennie suivante.</li>
+      <li><strong>Les minéraux critiques sont la nouvelle géopolitique de l'énergie.</strong> La domination chinoise des chaînes de raffinage est la vulnérabilité systémique la moins visible et la plus grave pour les démocraties occidentales.</li>
+      <li><strong>Le financement de la transition dans les pays en développement</strong> est le principal défi de gouvernance mondiale. Sans it, le pic des émissions globales sera retardé de plusieurs décennies.</li>
+    </ul>
+
+    <h3>Tensions non résolues</h3>
+
+    <ul class="course-list">
+      <li><strong>Sécurité à court terme vs décarbonation à long terme</strong> : les crises géopolitiques (Ukraine, Moyen-Orient) peuvent temporairement réorienter les flux d'investissement vers des actifs fossiles pour sécuriser l'approvisionnement.</li>
+      <li><strong>Souveraineté industrielle vs efficience mondiale</strong> : la montée des politiques industrielles nationales (IRA, NZIA) risque de fragmenter les marchés de technologies propres et d'en augmenter les coûts.</li>
+      <li><strong>Urgence climatique vs acceptabilité sociale</strong> : la vitesse de la transition doit réconcilier impératif physique et contraintes politiques. Aucune démocratie ne peut décarboner contre ses citoyens.</li>
+      <li><strong>Innovation technologique vs inertie des infrastructures</strong> : les systèmes énergétiques sont des actifs de très long terme (30–50 ans). La transition implique de "tuer" prématurément des actifs rentables — un défi politique et économique majeur.</li>
+    </ul>
+
+    <div class="callout green">
+      <div class="callout-label">Message final — AIE</div>
+      <p>L'AIE conclut le WEO 2024 par un message nuancé mais ambigu : les conditions technico-économiques d'une transition réussie sont réunies (coûts des renouvelables, capacités industrielles), mais la fenêtre de décision se referme. Le fossé entre le "possible" et le "probable" est désormais un fossé de volonté politique, de financement et de gouvernance — pas de technologie.</p>
+    </div>
+
+    <h3>Bibliographie sélective</h3>
+
+    <ul class="course-list">
+      <li>AIE / IEA — <em>World Energy Outlook 2024</em>. Paris : IEA, 2024.</li>
+      <li>AIE / IEA — <em>Global Critical Minerals Outlook 2024 &amp; 2025</em>. Paris : IEA, 2024–2025.</li>
+      <li>GIEC / IPCC — <em>Sixth Assessment Report (AR6) — Synthesis Report</em>. Genève, 2023.</li>
+      <li>BCG — <em>The Mineral Shortage Is a Growing Problem</em>. Boston Consulting Group, février 2025.</li>
+      <li>McKinsey &amp; Company — <em>Stratégies industrielles et chaînes de valeur dans un contexte géopolitique</em>, 2023–2024.</li>
+      <li>McKinsey Global Institute — <em>Global Energy Perspective 2023</em>.</li>
+      <li>Commission européenne — <em>REPowerEU Plan</em>. Bruxelles, mai 2022.</li>
+      <li>Ember — <em>European Electricity Review 2025</em>.</li>
+      <li>Groupe d'Études Géopolitiques — <em>La guerre en Ukraine et la transition énergétique</em>. Paris, 2023.</li>
+      <li>World Energy Council — <em>World Energy Trilemma Index 2024</em>.</li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-label">À propos de ce cours</div>
+        <p class="footer-text">Ce cours magistral a été conçu à partir des derniers rapports de l'Agence Internationale de l'Énergie (AIE/IEA), du GIEC, du BCG, de McKinsey &amp; Company et d'autres sources académiques et institutionnelles de premier plan. Il est destiné aux étudiants de Master, Grande École, ou aux professionnels cherchant une vue systémique des enjeux énergétiques mondiaux.</p>
+      </div>
+      <div>
+        <div class="footer-label">Sources principales</div>
+        <p class="footer-text">
+          <a href="https://www.iea.org/reports/world-energy-outlook-2024">AIE — WEO 2024</a><br>
+          <a href="https://www.iea.org/reports/global-critical-minerals-outlook-2024">AIE — GCMO 2024</a><br>
+          <a href="https://www.bcg.com">BCG Critical Minerals</a><br>
+          <a href="https://www.ipcc.ch/report/ar6/">GIEC AR6</a>
+        </p>
+      </div>
+      <div>
+        <div class="footer-label">Mise à jour</div>
+        <p class="footer-text">Données intégrant les publications jusqu'au premier semestre 2025. Cours à mettre à jour annuellement en fonction des nouvelles éditions du WEO (AIE, octobre) et des rapports GIEC.</p>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  // Active nav item on scroll
+  const chapters = document.querySelectorAll('[id]');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(n => n.classList.remove('active'));
+        const active = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  chapters.forEach(c => observer.observe(c));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Animate progress bars on first visible
+  const progressFills = document.querySelectorAll('.progress-fill');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.style.width;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  progressFills.forEach(b => barObserver.observe(b));
+</script>
+</body>
+</html>
